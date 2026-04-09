@@ -1,5 +1,5 @@
 # titanic-survival-predictor
-End-to-end machine learning pipeline that predictcs Titanic passanger survival.
+End-to-end machine learning pipeline that predicts Titanic passenger survival.
 
 Live API url: https://titanic-survival-predictor-zfob.onrender.com  
 Note: Requests made after inactivity may take an additional minute due to the API being deployed using the free tier of Render.
@@ -11,18 +11,20 @@ Libraries: sqlite3, scikit-learn, pandas, Flask, joblib
 **Tutorials**
 
 **Make prediction using API**
-Send a POST http request to the predict endpoint with a JSON body for the passanger.
+Send a POST http request to the predict endpoint with a JSON body for the passenger.
 
-Example:  
-{  
-  "Pclass": 3  
-  "Sex": "male"  
-  "Age": 22  
-  "SibSp": 1  
-  "Parch": 0  
-  "Fare": 7.25  
-  "Embarked": "S"  
+Example:
+```
+{
+  "Pclass": 3,
+  "Sex": "male",
+  "Age": 22,
+  "SibSp": 1,
+  "Parch": 0,
+  "Fare": 7.25,
+  "Embarked": "S"
 }
+```
 
 Example command line (windows):  
 curl -X POST https://titanic-survival-predictor-zfob.onrender.com/predict -H "Content-Type: application/json" -d "{\"Pclass\": 3, \"Sex\": \"male\", \"Age\": 22, \"SibSp\": 1, \"Parch\": 0, \"Fare\": 7.25, \"Embarked\": \"S\"}"
