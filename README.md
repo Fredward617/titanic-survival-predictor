@@ -10,7 +10,7 @@ Libraries: sqlite3, scikit-learn, pandas, Flask, joblib
 
 **Tutorials**
 
-**Make prediction using API**
+**Make prediction using API**  
 Send a POST http request to the predict endpoint with a JSON body for the passenger.
 
 Example:
@@ -29,7 +29,7 @@ Example:
 Example command line (windows):  
 curl -X POST https://titanic-survival-predictor-zfob.onrender.com/predict -H "Content-Type: application/json" -d "{\"Pclass\": 3, \"Sex\": \"male\", \"Age\": 22, \"SibSp\": 1, \"Parch\": 0, \"Fare\": 7.25, \"Embarked\": \"S\"}"
 
-**Retrain model using API**
+**Retrain model using API**  
 SEND a POST http request to the retrain endpoint with a csv file with columns: Pclass, Sex, Age, SibSp, Parch, Fare, Embarked, Survived
 
 Example command line (windows):
@@ -52,18 +52,18 @@ Pclass,Sex,Age,SibSp,Parch,Fare,Embarked,Survived
 2,male,35,0,0,13.0,S,0
 ```
 
-**Run pipeline locally**
+**Run pipeline locally**  
 1. Clone repo  
-  git clone https://github.com/Fredward617/titanic-survival-predictor.git
+  git clone https://github.com/Fredward617/titanic-survival-predictor.git  
   cd titanic-survival-predictor
 
-3. Install dependencies
+3. Install dependencies  
    pip install -r requirements.txt
 
-4. Train model
+4. Train model  
    python model_trainer.py data-sets/titanic.csv --split
 
-5. Start API
+5. Start API  
    python app.py
 
 6. In a different terminal make predictions and retrain model as previously shown using "http://localhost:5000" for the url
