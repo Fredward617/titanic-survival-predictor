@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 model_path = os.environ.get("MODEL_FILE", "models/titanic_survivor_model.joblib")
 
-model = joblib.load("model/")
+model = joblib.load(model_path)
 
 @app.route("/predict", methods = ["POST"])
 def predict():
