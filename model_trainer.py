@@ -2,7 +2,6 @@ import pandas
 import sqlite3
 import os
 import sys
-
 import joblib
 import argparse
 from utils import clean_data
@@ -52,7 +51,7 @@ print()
 
 data_frame = clean_data(data_frame)
 
-model = train_model(data_frame, args.split)
+model = train_model(data_frame, args.estimators, args.split)
 
 joblib.dump(model, args.output_file)
 print(f"Model saved to {args.output_file}")

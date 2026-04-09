@@ -23,7 +23,7 @@ def clean_data(data_frame):
     
     return data_frame
 
-def train_model(data_frame, estimators=100, split=None):
+def train_model(data_frame, estimators=100, evaluate=False):
     # Initialize the model
     model = RandomForestClassifier(n_estimators = estimators, random_state = 617)
 
@@ -32,7 +32,7 @@ def train_model(data_frame, estimators=100, split=None):
     target = data_frame["Survived"]
 
     # Train the model
-    if split:
+    if evaluate:
         # If split evaluate the model after training
         split = train_test_split(features, target, test_size=0.2, random_state = 617)
         features_train, features_test, target_train, target_test = split
@@ -42,8 +42,8 @@ def train_model(data_frame, estimators=100, split=None):
     else:
         model.fit(features, target)
 
-    print("Succesfully trained model")
-    if (split):
+    print("Successfully trained model")
+    if evaluate:
         print(f"Test accuracy: {accuracy:.2%}")
     print()
 
