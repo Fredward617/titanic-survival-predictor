@@ -6,10 +6,12 @@ import pandas
 import io
 from utils import clean_data
 from utils import train_model
+from flask_cors import CORS
 
  
 # Create app instance
 app = Flask(__name__)
+CORS(app)
 
 model_path = os.environ.get("MODEL_FILE", "models/titanic_survivor_model.joblib")
 data_path = os.environ.get("DATA_FILE", "data-sets/titanic.csv")
@@ -67,10 +69,8 @@ def predict():
     probability = model.predict_proba(features)[0][1]
     prediction = model.predict(features)[0]
 
-    response = jsonify({"predicted_survival_chance": round(float(probability), 2),
+    return jsonify({"predicted_survival_chance": round(float(probability), 2),
                     "prediction": int(prediction)})
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
 
 @app.route("/retrain", methods=["POST"])
 def retrain():
