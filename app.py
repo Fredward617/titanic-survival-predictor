@@ -67,9 +67,10 @@ def predict():
     probability = model.predict_proba(features)[0][1]
     prediction = model.predict(features)[0]
 
-    return jsonify({"predicted_survival_chance": round(float(probability), 2),
+    response = jsonify({"predicted_survival_chance": round(float(probability), 2),
                     "prediction": int(prediction)})
-
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 @app.route("/retrain", methods=["POST"])
 def retrain():
