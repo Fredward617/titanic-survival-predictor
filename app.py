@@ -1,17 +1,14 @@
 from flask import Flask, request, jsonify
 import joblib
 import numpy as np
-import argparse
+import os
  
 # Create app instance
 app = Flask(__name__)
 
-# Parse command line arguments
-parser = argparse.ArgumentParser()
-parser.add_argument("--model-file", default = "models/titanic_survivor_model.joblib", help = "Path to joblib model file")
-args = parser.parse_args()
+model_path = os.environ.get("MODEL_FILE", "models/titanic_survivor_model.joblib")
 
-model = joblib.load(args.model_file)
+model = joblib.load("model/")
 
 @app.route("/predict", methods = ["POST"])
 def predict():
