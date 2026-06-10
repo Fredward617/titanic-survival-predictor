@@ -4,7 +4,7 @@ End-to-end machine learning pipeline that predicts Titanic passenger survival.
 Live API url: https://titanic-survival-predictor-zfob.onrender.com  
 Note: Requests made after inactivity may take an additional minute due to the API being deployed using the free tier of Render.
 
-Languages: Python
+Languages: Python  
 Libraries: sqlite3, scikit-learn, pandas, Flask, joblib
 
 
